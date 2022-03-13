@@ -8,14 +8,13 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="root">
-    we
-  </div>
+  <script src=""></script>
+  <div id="root"></div>
   <script>
     const div = document.createElement('div');
     div.textContent = Math.random();
     div.className = "hello-world";
-    document.body.querySelector.append(div);
+    document.body.querySelector('#root').append(div);
   </script>
 </body>
 </html>
