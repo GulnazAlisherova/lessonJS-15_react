@@ -8,28 +8,35 @@
   <title>Document</title>
 </head>
 <body>
+  
+  <script src="https://unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+  
   <div id="root"></div>
-  <div id="rootReact"></div> 
 
-  <script>
-    const div = document.createElement('div');
-    div.textContent = Math.random();
-    div.className = "hello-world";
-    document.body.querySelector('#root').append(div);
-  </script>
+  <script type="text/babel">
+    function RandomNumber(props) {
+      return (
+        <div className="hello-world">
+          <span>
+            <strong>{(Math.random() * props.max).toFixed()}</strong>
+            <mark> - this is random number</mark>
+          </span>
+        </div>
+      );
+    }
 
+    const App = (
+      <div>
+        <RandomNumber max={10} />
+        <RandomNumber max={100} />
+        <RandomNumber max={1000} />
+        <RandomNumber max={10000} />
+      </div>
+    );
 
-  <script>
-    const reactDiv = React.createElement('div');
-    console.log(ReactDiv);
-  </script>
-
-  <script>
-    const div = document.createElement('div');
-    div.textContent = Math.random();
-    div.className = "hello-world";
-    document.body.querySelector('#rootReact').append(div);
+    ReactDOM.render(App, document.querySelector('#root'));
   </script>
 </body>
 </html>
